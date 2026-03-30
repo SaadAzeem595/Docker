@@ -1,0 +1,586 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\saada>docker -v
+Docker version 29.3.1, build c2be9cc
+
+C:\Users\saada>docker
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  bake        Build from a file
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Authenticate to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  agent*      Docker AI Agent Runner
+  ai*         Docker AI Agent - Ask Gordon
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  debug*      Get a shell into any image or container
+  desktop*    Docker Desktop commands
+  dhi*        CLI for managing Docker Hardened Images
+  extension*  Manages Docker extensions
+  image       Manage images
+  init*       Creates Docker-related starter files for your project
+  manifest    Manage Docker image manifests and manifest lists
+  mcp*        Docker MCP Plugin
+  model*      Docker Model Runner
+  network     Manage networks
+  offload*    Docker Offload
+  plugin      Manage plugins
+  sandbox*    Docker Sandbox
+  sbom*       View the packaged-based Software Bill Of Materials (SBOM) for an image
+  scout*      Docker Scout
+  system      Manage Docker
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\saada\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host string        Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\saada\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\saada\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\saada\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+
+C:\Users\saada>docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete
+d5e71e642bf5: Download complete
+Digest: sha256:452a468a4bf985040037cb6d5392410206e47db9bf5b7278d281f94d1c2d0931
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+
+C:\Users\saada>docker images
+                                                                                                    i Info →   U  In Use
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest   452a468a4bf9       25.9kB         9.49kB
+
+C:\Users\saada>docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\saada>docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+817807f3c64e: Pull complete
+e4a1e8de092c: Download complete
+Digest: sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+C:\Users\saada>docker run -it ubuntu
+root@cbac39eb6b93:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@cbac39eb6b93:/# mkdir selfdirectory
+root@cbac39eb6b93:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  selfdirectory  srv  sys  tmp  usr  var
+root@cbac39eb6b93:/# env
+HOSTNAME=cbac39eb6b93
+PWD=/
+HOME=/root
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+TERM=xterm
+SHLVL=1
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+_=/usr/bin/env
+root@cbac39eb6b93:/# exit
+exit
+
+=============================================================================================================================
+C:\Users\saada>docker ps -a
+CONTAINER ID   IMAGE         COMMAND       CREATED          STATUS                      PORTS     NAMES
+cbac39eb6b93   ubuntu        "/bin/bash"   6 minutes ago    Exited (0) 4 minutes ago              reverent_tharp
+582519dcf02e   hello-world   "/hello"      20 minutes ago   Exited (0) 20 minutes ago             busy_jang
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\saada>docker start cbac39eb6b93
+cbac39eb6b93
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
+cbac39eb6b93   ubuntu    "/bin/bash"   10 minutes ago   Up 24 seconds             reverent_tharp
+
+C:\Users\saada>docker stop reverent_tharp
+reverent_tharp
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\saada>docker images
+                                                                                                    i Info →   U  In Use
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest   452a468a4bf9       25.9kB         9.49kB    U
+ubuntu:latest        186072bba1b2        119MB         31.7MB    U
+
+C:\Users\saada>docker rmi hello-world:latest
+Error response from daemon: conflict: unable to delete hello-world:latest (must be forced) - container 582519dcf02e is using its referenced image 452a468a4bf9
+
+# First we need to delete the container then we can delete the docker images
+
+C:\Users\saada>docker ps -a
+CONTAINER ID   IMAGE         COMMAND       CREATED          STATUS                            PORTS     NAMES
+cbac39eb6b93   ubuntu        "/bin/bash"   12 minutes ago   Exited (137) About a minute ago             reverent_tharp
+582519dcf02e   hello-world   "/hello"      27 minutes ago   Exited (0) 27 minutes ago                   busy_jang
+
+C:\Users\saada>docker rm 582519dcf02e
+582519dcf02e
+
+C:\Users\saada>docker rmi hello-world:latest
+Untagged: hello-world:latest
+Deleted: sha256:452a468a4bf985040037cb6d5392410206e47db9bf5b7278d281f94d1c2d0931
+
+C:\Users\saada>docker images
+                                                                                                    i Info →   U  In Use
+IMAGE           ID             DISK USAGE   CONTENT SIZE   EXTRA
+ubuntu:latest   186072bba1b2        119MB         31.7MB    U
+
+C:\Users\saada>docker rm ubuntu:latest
+Error response from daemon: No such container: ubuntu:latest
+
+C:\Users\saada>docker rm ubuntu
+Error response from daemon: No such container: ubuntu
+
+C:\Users\saada>docker rm 186072bba1b2
+Error response from daemon: No such container: 186072bba1b2
+
+C:\Users\saada>docker rm cbac39eb6b93
+cbac39eb6b93
+
+C:\Users\saada>docker rmi ubuntu
+Untagged: ubuntu:latest
+Deleted: sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c
+
+=============================================================================================================================
+
+C:\Users\saada>docker pull mysql
+Using default tag: latest
+latest: Pulling from library/mysql
+c75b6f683cbd: Pull complete
+7ef200aee2ac: Pull complete
+dc0ae5ec7f3c: Pull complete
+f7eb4be426a1: Pull complete
+3a83832a6208: Pull complete
+d4c7048d1cf1: Pull complete
+ad38d99426c5: Pull complete
+fc3bc5fe2030: Pull complete
+660dee12630a: Pull complete
+4e3633ebbb73: Pull complete
+32f88ec2712b: Download complete
+697c144a0375: Download complete
+Digest: sha256:24e450bbd24f621c71b10404c946cc9ea1cbb0e6e7464b2be2de5193dcf1d05b
+Status: Downloaded newer image for mysql:latest
+docker.io/library/mysql:latest
+
+C:\Users\saada>docker pull mysql:8.0
+8.0: Pulling from library/mysql
+0940ecf5daec: Pull complete
+440208b3f29f: Pull complete
+5915b0e5580c: Pull complete
+60c3210ab1f6: Pull complete
+6375ec02106f: Pull complete
+1378718ee973: Pull complete
+10ee8ef3b9fc: Pull complete
+c3b8cfb10b41: Pull complete
+cd8097e7c26b: Pull complete
+771773a1fe7a: Pull complete
+de0490608ca2: Download complete
+2f1dcce71f1f: Download complete
+Digest: sha256:64756cc92f707eb504496d774353990bcb0f6999ddf598b6ad188f2da66bd000
+Status: Downloaded newer image for mysql:8.0
+docker.io/library/mysql:8.0
+
+C:\Users\saada>docker images
+                                                                                          i Info →   U  In Use
+IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+mysql:8.0      64756cc92f70       1.08GB          247MB
+mysql:latest   24e450bbd24f       1.27GB          283MB
+
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret mysql
+cf8b280d3ea3f8a98dff9c0c50d45d83d7faae8f9d3c5ee83b329320435dbea7
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                 NAMES
+cf8b280d3ea3   mysql     "docker-entrypoint.s…"   8 seconds ago   Up 7 seconds   3306/tcp, 33060/tcp   jovial_euler
+
+# For rename the container
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret --name mysql-older mysql:8.0
+3df9551f94ebc711c0f432361097d80890b4605a449b8279a39eda039800e635
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                 NAMES
+3df9551f94eb   mysql:8.0   "docker-entrypoint.s…"   7 seconds ago   Up 7 seconds   3306/tcp, 33060/tcp   mysql-older
+cf8b280d3ea3   mysql       "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes   3306/tcp, 33060/tcp   jovial_euler
+
+C:\Users\saada>docker stop cf8b280d3ea3
+cf8b280d3ea3
+
+C:\Users\saada>docker rm cf8b280d3ea3
+cf8b280d3ea3
+
+C:\Users\saada>docker rmi mysql
+Untagged: mysql:latest
+Deleted: sha256:24e450bbd24f621c71b10404c946cc9ea1cbb0e6e7464b2be2de5193dcf1d05b
+
+C:\Users\saada>C:\Users\saada>docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                 NAMES
+3df9551f94eb   mysql:8.0   "docker-entrypoint.s…"   9 minutes ago   Up 9 minutes   3306/tcp, 33060/tcp   mysql-older
+
+C:\Users\saada>docker images
+                                                                                                      i Info →   U  In Use
+IMAGE       ID             DISK USAGE   CONTENT SIZE   EXTRA
+mysql:8.0   64756cc92f70       1.08GB          247MB    U
+
+C:\Users\saada>docker pull mysql
+Using default tag: latest
+latest: Pulling from library/mysql
+660dee12630a: Pull complete
+dc0ae5ec7f3c: Pull complete
+f7eb4be426a1: Pull complete
+3a83832a6208: Pull complete
+c75b6f683cbd: Pull complete
+ad38d99426c5: Pull complete
+7ef200aee2ac: Pull complete
+4e3633ebbb73: Pull complete
+fc3bc5fe2030: Pull complete
+32f88ec2712b: Download complete
+697c144a0375: Download complete
+Digest: sha256:24e450bbd24f621c71b10404c946cc9ea1cbb0e6e7464b2be2de5193dcf1d05b
+Status: Downloaded newer image for mysql:latest
+docker.io/library/mysql:latest
+
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret --name mysql-latest mysql
+d6ac680e6637bdc50b8daf0e59ba70ef22bd055d7e5dd5728b085b6c2f8b7aed
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED          STATUS          PORTS                 NAMES
+d6ac680e6637   mysql       "docker-entrypoint.s…"   19 seconds ago   Up 17 seconds   3306/tcp, 33060/tcp   mysql-latest
+3df9551f94eb   mysql:8.0   "docker-entrypoint.s…"   15 minutes ago   Up 15 minutes   3306/tcp, 33060/tcp   mysql-older
+
+C:\Users\saada>
+
+=======================================================================================================================
+
+# *Port Binding*
+
+C:\Users\saada>docker ps -a
+CONTAINER ID   IMAGE       COMMAND                  CREATED       STATUS                        PORTS                 NAMES
+d6ac680e6637   mysql       "docker-entrypoint.s…"   6 hours ago   Exited (255) 49 seconds ago   3306/tcp, 33060/tcp   mysql-latest
+3df9551f94eb   mysql:8.0   "docker-entrypoint.s…"   7 hours ago   Exited (255) 49 seconds ago   3306/tcp, 33060/tcp   mysql-older
+
+C:\Users\saada>docker stop mysql-older
+mysql-older
+
+C:\Users\saada>docker rm mysql-older
+mysql-older
+
+C:\Users\saada>docker stop mysql-latest
+mysql-latest
+
+C:\Users\saada>docker rm mysql-latest
+mysql-latest
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\saada>docker images
+                                                                                                    i Info →   U  In Use
+IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+mysql:8.0      64756cc92f70       1.08GB          247MB
+mysql:latest   24e450bbd24f       1.27GB          283MB
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\saada>docker ps -a
+CONTAINER ID   IMAGE       COMMAND                  CREATED       STATUS                        PORTS                 NAMES
+d6ac680e6637   mysql       "docker-entrypoint.s…"   6 hours ago   Exited (255) 49 seconds ago   3306/tcp, 33060/tcp   mysql-latest
+3df9551f94eb   mysql:8.0   "docker-entrypoint.s…"   7 hours ago   Exited (255) 49 seconds ago   3306/tcp, 33060/tcp   mysql-older
+
+C:\Users\saada>docker stop mysql-older
+mysql-older
+
+C:\Users\saada>docker rm mysql-older
+mysql-older
+
+C:\Users\saada>docker stop mysql-latest
+mysql-latest
+
+C:\Users\saada>docker rm mysql-latest
+mysql-latest
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\saada>docker images
+                                                                                                    i Info →   U  In Use
+IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+mysql:8.0      64756cc92f70       1.08GB          247MB
+mysql:latest   24e450bbd24f       1.27GB          283MB
+
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret --name mysql-latest -p8080:3306 mysql
+a138d3637bb22928a5b2b1a07200984962635dfebb650a2983cad5083f82db6e
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+a138d3637bb2   mysql     "docker-entrypoint.s…"   23 seconds ago   Up 22 seconds   0.0.0.0:8080->3306/tcp, [::]:8080->3306/tcp   mysql-latest
+
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret --name mysql-latest -p8080:3306 mysql:8.0
+docker: Error response from daemon: Conflict. The container name "/mysql-latest" is already in use by container "a138d3637bb22928a5b2b1a07200984962635dfebb650a2983cad5083f82db6e". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret --name mysql-older -p8080:3306 mysql:8.0
+3bcda6e768aa748fc508260c5df2cbae3eae0a7529ff862eb0b8c769acde29a8
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint mysql-older (23b9c9dad3e7d8c1a6221bc3f1ee600e87d7e33e469265936d2ad5af09a6478f): Bind for 0.0.0.0:8080 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret --name mysql-older -p5000:3306 mysql:8.0
+docker: Error response from daemon: Conflict. The container name "/mysql-older" is already in use by container "3bcda6e768aa748fc508260c5df2cbae3eae0a7529ff862eb0b8c769acde29a8". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+C:\Users\saada>docker stop mysql-older
+mysql-older
+
+C:\Users\saada>docker rm mysql-older
+mysql-older
+
+=============================================================================================================================
+
+# Troubleshoot Commands
+
+C:\Users\saada>docker run -d -e MYSQL_ROOT_PASSWORD=secret --name mysql-older -p3000:3306 mysql:8.0
+ff9e3b4470222138b25c0eb822e3b8184d137edf200c925cfb8ed7711df323cd
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+ff9e3b447022   mysql:8.0   "docker-entrypoint.s…"   5 seconds ago   Up 4 seconds   0.0.0.0:3000->3306/tcp, [::]:3000->3306/tcp   mysql-older
+a138d3637bb2   mysql       "docker-entrypoint.s…"   6 minutes ago   Up 6 minutes   0.0.0.0:8080->3306/tcp, [::]:8080->3306/tcp   mysql-latest
+
+C:\Users\saada>docker logs mysql-latest
+2026-03-29 18:33:19+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.6.0-1.el9 started.
+2026-03-29 18:33:19+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+2026-03-29 18:33:20+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 9.6.0-1.el9 started.
+2026-03-29 18:33:20+00:00 [Note] [Entrypoint]: Initializing database files
+2026-03-29T18:33:20.402680Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2026-03-29T18:33:20.405961Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 9.6.0) initializing of server in progress as process 80
+2026-03-29T18:33:20.461155Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-03-29T18:33:21.447003Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-03-29T18:33:23.952584Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2026-03-29T18:33:26.742606Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2026-03-29 18:33:26+00:00 [Note] [Entrypoint]: Database files initialized
+2026-03-29 18:33:26+00:00 [Note] [Entrypoint]: Starting temporary server
+2026-03-29T18:33:26.834736Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-03-29T18:33:27.174662Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 9.6.0) starting as process 117
+2026-03-29T18:33:27.174684Z 0 [System] [MY-015590] [Server] MySQL Server has access to 8 logical CPUs.
+2026-03-29T18:33:27.174702Z 0 [System] [MY-015590] [Server] MySQL Server has access to 4041437184 bytes of physical memory.
+2026-03-29T18:33:27.249931Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-03-29T18:33:28.102683Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-03-29T18:33:28.952658Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-03-29T18:33:28.952829Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-03-29T18:33:28.962875Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2026-03-29T18:33:29.035546Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+2026-03-29T18:33:29.036179Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '9.6.0'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+2026-03-29 18:33:29+00:00 [Note] [Entrypoint]: Temporary server started.
+'/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+
+2026-03-29 18:33:32+00:00 [Note] [Entrypoint]: Stopping temporary server
+2026-03-29T18:33:32.990008Z 11 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 9.6.0).
+2026-03-29T18:33:34.237474Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 9.6.0)  MySQL Community Server - GPL.
+2026-03-29T18:33:34.237630Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+2026-03-29 18:33:34+00:00 [Note] [Entrypoint]: Temporary server stopped
+
+2026-03-29 18:33:35+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+
+2026-03-29T18:33:35.084106Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2026-03-29T18:33:35.514317Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 9.6.0) starting as process 1
+2026-03-29T18:33:35.514339Z 0 [System] [MY-015590] [Server] MySQL Server has access to 8 logical CPUs.
+2026-03-29T18:33:35.514354Z 0 [System] [MY-015590] [Server] MySQL Server has access to 4041437184 bytes of physical memory.
+2026-03-29T18:33:35.528275Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-03-29T18:33:36.307030Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-03-29T18:33:36.945496Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2026-03-29T18:33:36.945648Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2026-03-29T18:33:36.954048Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2026-03-29T18:33:37.027757Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2026-03-29T18:33:37.028466Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '9.6.0'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+
+C:\Users\saada>docker exec -it mysql-latest /bin/bash
+bash-5.1# ls
+afs  boot  docker-entrypoint-initdb.d  home  lib64  mnt  proc  run   srv  tmp  var
+bin  dev   etc                         lib   media  opt  root  sbin  sys  usr
+bash-5.1# env
+MYSQL_MAJOR=innovation
+HOSTNAME=a138d3637bb2
+PWD=/
+MYSQL_ROOT_PASSWORD=secret
+HOME=/root
+MYSQL_VERSION=9.6.0-1.el9
+GOSU_VERSION=1.19
+TERM=xterm
+SHLVL=1
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MYSQL_SHELL_VERSION=9.6.0-1.el9
+_=/usr/bin/env
+bash-5.1# exit
+exit
+
+=============================================================================================================
+
+# Developing with Docker 
+
+C:\Users\saada>docker network ls
+NETWORK ID     NAME            DRIVER    SCOPE
+0fe83256b898   bridge          bridge    local
+47ba2c4c0603   host            host      local
+ac6d93da6ed4   mongo-network   bridge    local
+45d5c20c2b49   none            null      local
+
+C:\Users\saada>docker network create mongo-network
+ac6d93da6ed4ebdfa7ef04c8e031df7ca15d095b679145a2ccce3d0ac5b59a19
+
+C:\Users\saada>docker run -d ^
+More? -p 27017:27017 ^
+More? --name mongo ^
+More? --network mongo-network ^
+More? -e MONGO_INITDB_ROOT_USERNAME=admin ^
+More? -e MONGO_INITDB_ROOT_PASSWORD=qwerty ^
+More? mongo
+93d51cefe933b2e7385111582c7f804d8fd782bcdc13dde8e2a521ce7b5d6668
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED             STATUS             PORTS                                             NAMES
+93d51cefe933   mongo       "docker-entrypoint.s…"   26 seconds ago      Up 25 seconds      0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
+ff9e3b447022   mysql:8.0   "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:3000->3306/tcp, [::]:3000->3306/tcp       mysql-older
+a138d3637bb2   mysql       "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:8080->3306/tcp, [::]:8080->3306/tcp       mysql-latest
+
+C:\Users\saada>docker run -d ^
+More? -p8081:8081 ^
+More? --name mongo-express ^
+More? --network mongo-network ^
+More? -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin ^
+More? -e ME_CONFIG_MONGODB_ADMINPASSWORD=qwerty ^
+More? -e ME_CONFIG_MONGODB_URL="mongodb://admin:qwerty@mongo:27017" ^ ^
+More? mongo-express
+Unable to find image 'mongo-express:latest' locally
+latest: Pulling from library/mongo-express
+0bf3571b6cd7: Pull complete
+9f7f59574f7d: Pull complete
+d8305ae32c95: Pull complete
+619be1103602: Pull complete
+5189255e31c8: Pull complete
+45b24ec126f9: Pull complete
+7e9a007eb24b: Pull complete
+88f4f8a6bc8d: Pull complete
+337574bd0f5e: Download complete
+99ef4db52d2b: Download complete
+Digest: sha256:1b23d7976f0210dbec74045c209e52fbb26d29b2e873d6c6fa3d3f0ae32c2a64
+Status: Downloaded newer image for mongo-express:latest
+dd206698c18ba8d043f7cb6b27b833d8b0066b0b2b63741df2ed92ba8934dd0d
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED             STATUS             PORTS                                             NAMES
+dd206698c18b   mongo-express   "/sbin/tini -- /dock…"   27 seconds ago      Up 26 seconds      0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       mongo-express
+93d51cefe933   mongo           "docker-entrypoint.s…"   8 minutes ago       Up 8 minutes       0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
+ff9e3b447022   mysql:8.0       "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:3000->3306/tcp, [::]:3000->3306/tcp       mysql-older
+a138d3637bb2   mysql           "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:8080->3306/tcp, [::]:8080->3306/tcp       mysql-latest
+
+C:\Users\saada>
+
