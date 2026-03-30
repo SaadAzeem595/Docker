@@ -536,51 +536,41 @@ ac6d93da6ed4   mongo-network   bridge    local
 C:\Users\saada>docker network create mongo-network
 ac6d93da6ed4ebdfa7ef04c8e031df7ca15d095b679145a2ccce3d0ac5b59a19
 
+C:\Users\saada>docker rm -f e26c41c3b076 dd206698c18b 93d51cefe933 ff9e3b447022 a138d3637bb2
+e26c41c3b076
+dd206698c18b
+93d51cefe933
+ff9e3b447022
+a138d3637bb2
+
+C:\Users\saada>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\saada>docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
 C:\Users\saada>docker run -d ^
-More? -p 27017:27017 ^
 More? --name mongo ^
+More? -p 27017:27017 ^
 More? --network mongo-network ^
 More? -e MONGO_INITDB_ROOT_USERNAME=admin ^
 More? -e MONGO_INITDB_ROOT_PASSWORD=qwerty ^
 More? mongo
-93d51cefe933b2e7385111582c7f804d8fd782bcdc13dde8e2a521ce7b5d6668
-
-C:\Users\saada>docker ps
-CONTAINER ID   IMAGE       COMMAND                  CREATED             STATUS             PORTS                                             NAMES
-93d51cefe933   mongo       "docker-entrypoint.s…"   26 seconds ago      Up 25 seconds      0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
-ff9e3b447022   mysql:8.0   "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:3000->3306/tcp, [::]:3000->3306/tcp       mysql-older
-a138d3637bb2   mysql       "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:8080->3306/tcp, [::]:8080->3306/tcp       mysql-latest
+ec86b5c59ed13bf1b9b9f23662f8e64f2130c82ffde943eef33d571efec45666
 
 C:\Users\saada>docker run -d ^
-More? -p8081:8081 ^
+More? -p 8081:8081 ^
 More? --name mongo-express ^
 More? --network mongo-network ^
 More? -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin ^
 More? -e ME_CONFIG_MONGODB_ADMINPASSWORD=qwerty ^
-More? -e ME_CONFIG_MONGODB_URL="mongodb://admin:qwerty@mongo:27017" ^ ^
+More? -e ME_CONFIG_MONGODB_URL="mongodb://admin:qwerty@mongo:27017" ^
 More? mongo-express
-Unable to find image 'mongo-express:latest' locally
-latest: Pulling from library/mongo-express
-0bf3571b6cd7: Pull complete
-9f7f59574f7d: Pull complete
-d8305ae32c95: Pull complete
-619be1103602: Pull complete
-5189255e31c8: Pull complete
-45b24ec126f9: Pull complete
-7e9a007eb24b: Pull complete
-88f4f8a6bc8d: Pull complete
-337574bd0f5e: Download complete
-99ef4db52d2b: Download complete
-Digest: sha256:1b23d7976f0210dbec74045c209e52fbb26d29b2e873d6c6fa3d3f0ae32c2a64
-Status: Downloaded newer image for mongo-express:latest
-dd206698c18ba8d043f7cb6b27b833d8b0066b0b2b63741df2ed92ba8934dd0d
+c44efc154b2d8e2a47266387fbf3aead54ee9b5424e5a9113fe1b5ad3f866ac3
 
 C:\Users\saada>docker ps
-CONTAINER ID   IMAGE           COMMAND                  CREATED             STATUS             PORTS                                             NAMES
-dd206698c18b   mongo-express   "/sbin/tini -- /dock…"   27 seconds ago      Up 26 seconds      0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       mongo-express
-93d51cefe933   mongo           "docker-entrypoint.s…"   8 minutes ago       Up 8 minutes       0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
-ff9e3b447022   mysql:8.0       "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:3000->3306/tcp, [::]:3000->3306/tcp       mysql-older
-a138d3637bb2   mysql           "docker-entrypoint.s…"   About an hour ago   Up About an hour   0.0.0.0:8080->3306/tcp, [::]:8080->3306/tcp       mysql-latest
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+c44efc154b2d   mongo-express   "/sbin/tini -- /dock…"   4 seconds ago    Up 3 seconds    0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       mongo-express
+ec86b5c59ed1   mongo           "docker-entrypoint.s…"   20 seconds ago   Up 18 seconds   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
 
 C:\Users\saada>
-
