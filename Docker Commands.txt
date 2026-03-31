@@ -573,4 +573,124 @@ CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS 
 c44efc154b2d   mongo-express   "/sbin/tini -- /dock…"   4 seconds ago    Up 3 seconds    0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       mongo-express
 ec86b5c59ed1   mongo           "docker-entrypoint.s…"   20 seconds ago   Up 18 seconds   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
 
-C:\Users\saada>
+=====================================================================================================================
+
+D:\Docker\my-test-app>docker system prune
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - unused build cache
+
+Are you sure you want to continue? [y/N] y
+Deleted Networks:
+mongo-network
+
+Total reclaimed space: 0B
+
+D:\Docker\my-test-app>docker pull mongo
+Using default tag: latest
+latest: Pulling from library/mongo
+817807f3c64e: Pull complete
+8d1d6859a473: Pull complete
+2605962b0286: Pull complete
+0c85015575ad: Pull complete
+01a854eada6f: Pull complete
+3a5c9bc3c6a6: Pull complete
+e8567d1c4785: Pull complete
+1e41d5f93e35: Pull complete
+ee7db4c3583f: Download complete
+51deed191cab: Download complete
+Digest: sha256:d343c378b5c6e2fe373174abcf4a877be0dfc721b5d0b9d582204dccb1c00b86
+Status: Downloaded newer image for mongo:latest
+docker.io/library/mongo:latest
+
+D:\Docker\my-test-app>docker pull mongo-express
+Using default tag: latest
+latest: Pulling from library/mongo-express
+0bf3571b6cd7: Pull complete
+88f4f8a6bc8d: Pull complete
+d8305ae32c95: Pull complete
+9f7f59574f7d: Pull complete
+619be1103602: Pull complete
+5189255e31c8: Pull complete
+7e9a007eb24b: Pull complete
+45b24ec126f9: Pull complete
+337574bd0f5e: Download complete
+99ef4db52d2b: Download complete
+Digest: sha256:1b23d7976f0210dbec74045c209e52fbb26d29b2e873d6c6fa3d3f0ae32c2a64
+Status: Downloaded newer image for mongo-express:latest
+docker.io/library/mongo-express:latest
+
+D:\Docker\my-test-app>docker compose -f mongodb.yaml up -d
+[+] up 3/3
+ ✔ Network my-test-app_default           Created                                                                    0.1s
+ ✔ Container my-test-app-mongodb-1       Started                                                                    1.3s
+ ✔ Container my-test-app-mongo-express-1 Started                                                                    1.3s
+
+D:\Docker\my-test-app>docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+d3a45339baa9   mongo           "docker-entrypoint.s…"   34 seconds ago   Up 32 seconds   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   my-test-app-mongodb-1
+0a554bc2868a   mongo-express   "/sbin/tini -- /dock…"   34 seconds ago   Up 32 seconds   0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       my-test-app-mongo-express-1
+
+D:\Docker\my-test-app>docker compose -f mongodb.yaml down
+[+] down 3/3
+ ✔ Container my-test-app-mongodb-1       Removed                                                                    0.8s
+ ✔ Container my-test-app-mongo-express-1 Removed                                                                    0.7s
+ ✔ Network my-test-app_default           Removed                                                                    0.3s
+
+
+=========================================================================================================================
+
+Dockerize our App
+
+D:\Docker\my-test-app>docker build -t testapp:1.0 .
+[+] Building 913.1s (10/10) FINISHED                                                               docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 205B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/node:latest                                                     4.9s
+ => [auth] library/node:pull token for registry-1.docker.io                                                        0.0s
+ => [internal] load .dockerignore                                                                                  0.1s
+ => => transferring context: 2B                                                                                    0.0s
+ => [1/3] FROM docker.io/library/node:latest@sha256:ccfc02deb6abb1b70b6ef21d3d93b3f671c0de6f463ff331cf0ea0a28ad  904.6s
+ => => resolve docker.io/library/node:latest@sha256:ccfc02deb6abb1b70b6ef21d3d93b3f671c0de6f463ff331cf0ea0a28ad87  0.1s
+ => => sha256:5e41a256126a2332261ce2928c4ae0c38ba409c55290f6e5a796127ddc77b66d 1.25MB / 1.25MB                     1.9s
+ => => sha256:e4f5bfdf0e33240eac2ea5cb648031e3c74dc565e5f4f7fc5f20ef55cfe95c9a 445B / 445B                         2.0s
+ => => sha256:aae062f973ebdbee978215c3f21df80bbc02ae28789facf854b10ca6bcc3aa54 57.67MB / 57.67MB                 409.2s
+ => => sha256:300f1d0c5e2d9a26bc3392d0663a01002b03a8a6d00a5d1d8443d8c9c6779576 3.33kB / 3.33kB                     2.1s
+ => => sha256:505954b662451663b30768d461d6881e47bb272f6bc64e4d297f5cf79b9000cb 211.53MB / 211.53MB               885.6s
+ => => sha256:6cf051f1897bf7109af670b243c7791c62723fc1ebbfa516af2522da6c8c99a9 64.40MB / 64.40MB                 492.5s
+ => => sha256:26fa3468d221545a43d2151f3977695a31857f9342ba842627d03c9fa1b2ae02 24.04MB / 24.04MB                 392.0s
+ => => sha256:9d2f29087bcd6d99efd909a99095549425cd63e27c71b3bf37f108c6b7c370f9 48.49MB / 48.49MB                 198.9s
+ => => extracting sha256:9d2f29087bcd6d99efd909a99095549425cd63e27c71b3bf37f108c6b7c370f9                          2.6s
+ => => extracting sha256:26fa3468d221545a43d2151f3977695a31857f9342ba842627d03c9fa1b2ae02                          1.8s
+ => => extracting sha256:6cf051f1897bf7109af670b243c7791c62723fc1ebbfa516af2522da6c8c99a9                          4.6s
+ => => extracting sha256:505954b662451663b30768d461d6881e47bb272f6bc64e4d297f5cf79b9000cb                         10.2s
+ => => extracting sha256:300f1d0c5e2d9a26bc3392d0663a01002b03a8a6d00a5d1d8443d8c9c6779576                          0.0s
+ => => extracting sha256:aae062f973ebdbee978215c3f21df80bbc02ae28789facf854b10ca6bcc3aa54                          6.4s
+ => => extracting sha256:5e41a256126a2332261ce2928c4ae0c38ba409c55290f6e5a796127ddc77b66d                          0.1s
+ => => extracting sha256:e4f5bfdf0e33240eac2ea5cb648031e3c74dc565e5f4f7fc5f20ef55cfe95c9a                          0.0s
+ => [internal] load build context                                                                                  8.1s
+ => => transferring context: 9.00MB                                                                                8.0s
+ => [auth] library/node:pull token for registry-1.docker.io                                                        0.0s
+ => [2/3] RUN mkdir -p my-test-app                                                                                 1.3s
+ => [3/3] COPY . /my-test-app                                                                                      0.4s
+ => exporting to image                                                                                             1.6s
+ => => exporting layers                                                                                            1.0s
+ => => exporting manifest sha256:5b98ddc9322a274ca20aa68937fb8eaf34488c6202e2d99723b737407a58fe9d                  0.0s
+ => => exporting config sha256:9968886d9901f4a4f7bc2fb6a2d1f7cd7e716eed89f8ce468d8fb2c87caf997c                    0.0s
+ => => exporting attestation manifest sha256:1ee906acbabd3e09b9bfd3003d11ca52c8cf99a5e02f44a3e764e99c139d4283      0.0s
+ => => exporting manifest list sha256:5fee369ef7a6b99ddb838c3ae030120176c7a5977585bdfe0995d4a8bdb0abe0             0.0s
+ => => naming to docker.io/library/testapp:1.0                                                                     0.0s
+ => => unpacking to docker.io/library/testapp:1.0                                                                  0.4s
+
+D:\Docker\my-test-app>docker images
+                                                                                                    i Info →   U  In Use
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+mongo-express:latest   1b23d7976f02        287MB         59.8MB
+mongo:latest           d343c378b5c6        1.3GB          341MB
+testapp:1.0            5fee369ef7a6       1.64GB          409MB
+
+D:\Docker\my-test-app>
+
+
