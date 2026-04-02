@@ -6,6 +6,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: qwerty
+    # MOVE VOLUMES HERE TO SEE THE FILES
+    volumes:
+      - "C:/Users/saada/Desktop/data:/data/db"
 
   mongo-express:
     image: mongo-express
@@ -14,5 +17,5 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: admin
       ME_CONFIG_MONGODB_ADMINPASSWORD: qwerty
+      # Match the service name 'mongodb' used above
       ME_CONFIG_MONGODB_URL: "mongodb://admin:qwerty@mongodb:27017/"
-      
